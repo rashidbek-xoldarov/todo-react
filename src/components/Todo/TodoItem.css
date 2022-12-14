@@ -1,0 +1,62 @@
+.todos-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #fff;
+}
+
+.todos-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.todos-item-title {
+  margin: 0 0 0 5px;
+  width: 300px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: #3a7bd5;
+}
+
+.todos-item-del {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3a7bd5;
+  border-radius: 50%;
+  border: none;
+  background: rgba(58, 123, 213, 0.2);
+  cursor: pointer;
+}
+
+.todos-item-del:hover {
+  background-color: #3a7bd5;
+  color: #fff;
+}
+
+.todos-item-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3a7bd5;
+  border-radius: 50%;
+  border: none;
+  background: rgba(58, 123, 213, 0.2);
+  cursor: pointer;
+}
+
+.todos-item-edit:hover {
+  background-color: #3a7bd5;
+  color: #fff;
+}
