@@ -1,10 +1,13 @@
 import { useState } from "react";
 import "./App.css";
+import Buttons from "./components/Buttons/Buttons";
 import Form from "./components/Form/Form";
 import TodoList from "./components/Todo/TodoList";
 
 function App() {
   const [todo, setTodo] = useState([]);
+  const [showList, setShowList] = useState([]);
+  const [showTodo, setShowTodo] = useState(true);
 
   const addTodo = (todo) => {
     setTodo((prev) => {
@@ -32,16 +35,40 @@ function App() {
     setTodo(checkedTodo);
   };
 
+  const getIsCompleted = (data) => {
+    setShowTodo(false);
+    setShowList(data);
+  };
+
+  const getAllTodo = () => {
+    setShowTodo(true);
+    setShowList([]);
+  };
+
   return (
     <div className="app">
       <Form onGetTodo={addTodo} />
-      {todo.length ? (
+      <Buttons
+        data={todo}
+        isCompletedTodo={getIsCompleted}
+        allTodo={getAllTodo}
+      />
+      {showTodo ? (
         <TodoList
           data={todo}
           onDeleteTodo={deleteTodoHandler}
           onEditTodo={editTodoHandler}
           onCheckTodo={checkTodoHandler}
         />
+      ) : (
+        ""
+      )}
+      {showList.length ? (
+        <ol>
+          {showList.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ol>
       ) : (
         ""
       )}

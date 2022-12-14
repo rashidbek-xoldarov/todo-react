@@ -11,7 +11,6 @@ const Form = (props) => {
 
   const submitFormHandler = (evt) => {
     evt.preventDefault();
-
     const obj = {
       id: Math.random(),
       title: value,
