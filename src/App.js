@@ -4,6 +4,9 @@ import Buttons from "./components/Buttons/Buttons";
 import Form from "./components/Form/Form";
 import TodoList from "./components/Todo/TodoList";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [todo, setTodo] = useState([]);
   const [showList, setShowList] = useState([]);
@@ -13,11 +16,13 @@ function App() {
     setTodo((prev) => {
       return [...prev, todo];
     });
+    toast.success("Submitted");
   };
 
   const deleteTodoHandler = (id) => {
     const filteredArr = todo.filter((item) => item.id !== id);
     setTodo(filteredArr);
+    toast.error("Deleted");
   };
 
   const editTodoHandler = (id) => {
@@ -26,6 +31,7 @@ function App() {
     const text = prompt("Enter text", item.title);
     item.title = text;
     setTodo(newTodo);
+    toast.warning("Edited");
   };
 
   const checkTodoHandler = (id) => {
@@ -72,6 +78,18 @@ function App() {
       ) : (
         ""
       )}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

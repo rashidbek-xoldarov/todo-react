@@ -17,26 +17,27 @@ const Form = (props) => {
       isCompleted: false,
     };
     props.onGetTodo(obj);
-
     setValue("");
   };
 
   return (
-    <form className="site-form" onSubmit={submitFormHandler}>
-      <label className="site-form__label">
-        <input
-          className="site-form__text"
-          type="text"
-          name="user_text"
-          placeholder="Enter todos"
-          value={value}
-          onChange={changeInputHandler}
-        />
-      </label>
-      <button className="site-form__btn" type="submit">
-        +
-      </button>
-    </form>
+    <>
+      <form className="site-form" onSubmit={submitFormHandler}>
+        <label className="site-form__label">
+          <input
+            className="site-form__text"
+            type="text"
+            name="user_text"
+            placeholder="Enter todos"
+            value={value}
+            onChange={changeInputHandler}
+          />
+        </label>
+        <button className="site-form__btn" type="submit">
+          +
+        </button>
+      </form>
+    </>
   );
 };
 
